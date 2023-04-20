@@ -27,6 +27,7 @@ app.get('/api/notes', (req, res) => {
 });
 
 app.post('/api/notes', (req, res) => {
+    res.status(200).json(`${req.method} request received to add a note`);
     console.info (`${req.method} request received to add a note`);
 
     const { title, text} = req.body;
@@ -45,7 +46,12 @@ app.post('/api/notes', (req, res) => {
                 const parsedNotes = JSON.parse(data);
                 parsedNotes.push(newNote);
 
-                fs.writeFile('./db/db.json', JSON.stringify(parsedNotes));
+                fs.writeFile('./db/db.json', JSON.stringify(parsedNotes),
+                (writeErr) =>
+                    writeErr
+                        ? console.error(writeErr)
+                        : console.info('Successfully updated notes!')
+                );
             }
         });
 
