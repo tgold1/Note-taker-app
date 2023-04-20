@@ -13,7 +13,7 @@ Here is the website link: https://protected-dusk-26151.herokuapp.com/
 
 Here is a screenshot 
 
-![alt text](assets/images/screenshot.png)
+![alt text](./assets/images/screenshot.png)
 
 ## Credits
 N/A
